@@ -3,33 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Contact | Wholesale Accessories Hub</title>
+
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Phone library -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css"
     />
-
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
-    <meta
-      name="description"
-      content="Wholesale Accessories Hub supplies high-quality accessories to retailers and businesses worldwide."
-    />
-    <meta
-      name="keywords"
-      content="wholesale accessories, bulk accessories, global suppliers, fashion accessories wholesale"
-    />
+
+    <!-- SEO -->
+    <meta name="description" content="Wholesale Accessories Hub supplies high-quality accessories to retailers and businesses worldwide." />
+    <meta name="keywords" content="wholesale accessories, bulk accessories, global suppliers, fashion accessories wholesale" />
     <meta name="author" content="Wholesale Accessories Hub" />
 
-    <!-- Open Graph (for social sharing) -->
     <meta property="og:title" content="Wholesale Accessories Hub" />
-    <meta
-      property="og:description"
-      content="Global wholesale supplier of quality accessories for businesses worldwide."
-    />
+    <meta property="og:description" content="Global wholesale supplier of quality accessories for businesses worldwide." />
     <meta property="og:type" content="website" />
   </head>
+
   <body>
+    <!-- NAV -->
     <header>
       <nav class="navbar">
         <h1>Wholesale Accessories Hub</h1>
@@ -41,15 +38,15 @@
       </nav>
     </header>
 
+    <!-- CONTACT -->
     <section class="contact-section">
       <h2>Contact Us</h2>
       <h3>Thank you for getting in touch.</h3>
+
       <p>
         We truly appreciate you reaching out to Wholesale Accessories Hub,
-        whether it’s for inquiries, feedback, support, complaints, or
-        partnership requests. We value every message we receive. Please kindly
-        complete the form below, and our team will respond to you as soon as
-        possible.
+        whether it’s for inquiries, feedback, support, complaints, or partnership requests.
+        Please complete the form below and we will respond as soon as possible.
       </p>
 
       <form
@@ -60,76 +57,84 @@
         data-netlify-honeypot="bot-field"
         action="/thank-you.html"
       >
-        >
+
         <input type="hidden" name="form-name" value="contact" />
 
-        <!-- PERSONAL INFO -->
+        <!-- PERSONAL -->
         <div class="form-group">
+          <label>Name</label>
           <input type="text" name="name" placeholder="Your Name" required />
 
+          <label>Email</label>
           <input type="email" name="email" placeholder="Your Email" required />
         </div>
 
-        <label for="phone" class="form-label"
-          >Phone Number (with country code)</label
-        >
-        <input id="phone" type="tel" name="phone" />
-
-        <select name="contact-method" required>
-          <option value="" disabled selected>Preferred Contact Method</option>
-          <option value="email">Email</option>
-          <option value="whatsapp">WhatsApp</option>
-          <option value="phone">Phone Call</option>
-        </select>
-        <!-- BUSINESS INFO -->
+        <!-- PHONE -->
         <div class="form-group">
-          <input
-            type="text"
-            name="business-name"
-            placeholder="Business Name"
-            required
-          />
+          <label class="form-label">Phone Number</label>
+          <input id="phone" type="tel" name="phone" />
+          <small class="hint">
+            Select your country flag, then enter your number
+          </small>
+        </div>
 
+        <!-- CONTACT METHOD -->
+        <div class="form-group">
+          <label>Preferred Contact Method</label>
+          <select name="contact-method" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="email">Email</option>
+            <option value="whatsapp">WhatsApp</option>
+            <option value="phone">Phone Call</option>
+          </select>
+        </div>
+
+        <!-- BUSINESS -->
+        <div class="form-group">
+          <label>Business Name</label>
+          <input type="text" name="business-name" required />
+
+          <label>Type of Business</label>
           <select name="business-type" required>
-            <option value="" disabled selected>Type of Business</option>
+            <option value="" disabled selected>Select business type</option>
             <option value="retailer">Retailer</option>
             <option value="online-store">Online Store</option>
             <option value="wholesaler">Wholesaler</option>
             <option value="other">Other</option>
           </select>
 
-          <input
-            type="text"
-            name="location"
-            placeholder="Location (City / Country)"
-            required
-          />
+          <label>Location</label>
+          <input type="text" name="location" placeholder="City / Country" required />
         </div>
 
         <!-- MESSAGE TYPE -->
-        <select name="message-type" required>
-          <option value="" disabled selected>Type of Message</option>
-          <option value="inquiry">Inquiry</option>
-          <option value="partnership">Partnership</option>
-          <option value="complaint">Complaint</option>
-          <option value="support">Support</option>
-          <option value="other">Other</option>
-        </select>
+        <div class="form-group">
+          <label>Type of Message</label>
+          <select name="message-type" required>
+            <option value="" disabled selected>Select message type</option>
+            <option value="inquiry">Inquiry</option>
+            <option value="partnership">Partnership</option>
+            <option value="complaint">Complaint</option>
+            <option value="support">Support</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
 
         <!-- MESSAGE -->
-        <textarea
-          name="message"
-          placeholder="Tell us how we can help you..."
-          required
-        ></textarea>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea name="message" placeholder="Tell us how we can help you..." required></textarea>
+        </div>
 
         <button type="submit">Send Message</button>
       </form>
     </section>
 
+    <!-- FOOTER -->
     <footer>
       <p>© 2026 Wholesale Accessories Hub</p>
     </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
