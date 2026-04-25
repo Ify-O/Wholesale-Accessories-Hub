@@ -555,3 +555,126 @@ button:hover {
   transform: translateY(-3px);
   background: #e6c200;
 }
+
+.whatsapp-box {
+  max-width: 500px;
+  margin: 100px auto;
+  text-align: center;
+  padding: 30px;
+  background: #0a0a0a;
+  border: 1px solid rgba(255,215,0,0.2);
+  border-radius: 12px;
+  color: #fff;
+}
+
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 18px;
+  background: gold;
+  color: black;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.skip-link {
+  display: block;
+  margin-top: 15px;
+  color: #aaa;
+  font-size: 13px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.whatsapp-box {
+  animation: fadeInUp 0.6s ease;
+}
+
+input:invalid,
+select:invalid,
+textarea:invalid {
+  border: 1px solid #ff4d4d;
+}
+
+input:focus:invalid,
+select:focus:invalid,
+textarea:focus:invalid {
+  box-shadow: 0 0 8px rgba(255, 77, 77, 0.3);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: gold;
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
+.phone-valid {
+  border: 1px solid #00c853 !important;
+  box-shadow: 0 0 8px rgba(0, 200, 83, 0.2);
+}
+
+.phone-invalid {
+  border: 1px solid #ff3d00 !important;
+  box-shadow: 0 0 8px rgba(255, 61, 0, 0.2);
+}
+
+.success-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0,0.85);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-card {
+  background: #0a0a0a;
+  border: 1px solid rgba(255,215,0,0.2);
+  padding: 40px;
+  border-radius: 14px;
+  text-align: center;
+  color: #fff;
+  max-width: 420px;
+
+  animation: fadeInUp 0.5s ease;
+}
+
+.checkmark {
+  font-size: 40px;
+  color: gold;
+  margin-bottom: 10px;
+}
+
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 18px;
+  background: gold;
+  color: black;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.home-link {
+  display: block;
+  margin-top: 15px;
+  color: #aaa;
+  font-size: 13px;
+}
