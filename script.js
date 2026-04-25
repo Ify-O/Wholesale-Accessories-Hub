@@ -28,6 +28,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("scroll", revealOnScroll);
 
+  // TOAST
+  const toast = document.getElementById("toast");
+
+  function showToast(message) {
+    if (!toast) return;
+
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 3000);
+  }
+
   // PHONE INPUT
   const phoneInput = document.querySelector("#phone");
 
@@ -41,10 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
       utilsScript:
         "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
     });
-  }
 
-  // PHONE VALIDATION (NOW INSIDE CORRECT SCOPE)
-  if (phoneInput && iti) {
     phoneInput.addEventListener("blur", function () {
       if (iti.isValidNumber()) {
         phoneInput.classList.add("phone-valid");
@@ -60,24 +71,46 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // FORM
+  // FORM (FIXED - DECLARED PROPERLY)
   const form = document.querySelector("form");
 
-  if (form && phoneInput && iti) {
-    form.addEventListener("submit", function () {
-      const fullNumber = iti.getNumber();
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      const requiredFields = form.querySelectorAll("[required]");
+      let missingFields = [];
 
-      phoneInput.value = fullNumber;
+      requiredFields.forEach((field) => {
+        if (!field.value.trim()) {
+          missingFields.push(field.name || field.placeholder || "field");
+        }
+      });
 
-      localStorage.setItem("phone", fullNumber);
+      if (missingFields.length > 0) {
+        e.preventDefault();
+        showToast("Please fill in: " + missingFields.join(", "));
+        return;
+      }
+
+      // PHONE SAFETY CHECK (CORRECT PLACE)
+      if (iti && phoneInput) {
+        const fullNumber = iti.getNumber();
+        phoneInput.value = fullNumber;
+        localStorage.setItem("phone", fullNumber);
+      }
     });
   }
 
-  // WHATSAPP BUTTON
+  // WHATSAPP BUTTON (ONLY ON THANK YOU PAGE)
   const whatsappLink = document.getElementById("whatsapp-link");
-  const storedPhone = localStorage.getItem("phone");
 
-  if (whatsappLink && storedPhone) {
-    whatsappLink.href = `https://wa.me/${storedPhone.replace("+", "")}`;
+  if (whatsappLink) {
+    const phone = localStorage.getItem("phone");
+
+    if (phone) {
+      const cleaned = phone.replace("+", "");
+      whatsappLink.href = `https://wa.me/${cleaned}`;
+    } else {
+      whatsappLink.href = "https://wa.me/2348102950853";
+    }
   }
 });
