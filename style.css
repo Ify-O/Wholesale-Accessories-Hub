@@ -39,14 +39,13 @@ img {
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-
   background: rgba(0, 0, 0, 0.9);
   color: #fff;
-
+  flex-direction: column;
   position: sticky;
   top: 0;
   z-index: 1000;
-
+  align-items: center;
   transition: all 0.3s ease;
 }
 
@@ -88,6 +87,15 @@ a {
 
 a:hover {
   opacity: 0.85;
+}
+
+/* TAGLINE - PREMIUM STYLE */
+.tagline {
+  font-style: italic;
+  color: rgba(234, 227, 188, 0.8); /* soft gold */
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-top: -5px;
 }
 /* =========================
    HERO LEVEL 3 (LUXURY SaaS)
@@ -352,8 +360,9 @@ button:hover {
 /* dropdown list */
 .iti__country-list {
   background: #111;
-  color: #fff;
+  color: #000;
   border: 1px solid #222;
+  border-radius: 8px;
 }
 
 /* hover state */
@@ -562,7 +571,7 @@ button:hover {
   text-align: center;
   padding: 30px;
   background: #0a0a0a;
-  border: 1px solid rgba(255,215,0,0.2);
+  border: 1px solid rgba(255, 215, 0, 0.2);
   border-radius: 12px;
   color: #fff;
 }
@@ -624,7 +633,7 @@ textarea:focus {
   left: 0;
   height: 100vh;
   width: 100%;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0, 0, 0, 0.85);
 
   display: flex;
   align-items: center;
@@ -633,7 +642,7 @@ textarea:focus {
 
 .success-card {
   background: #0a0a0a;
-  border: 1px solid rgba(255,215,0,0.2);
+  border: 1px solid rgba(255, 215, 0, 0.2);
   padding: 40px;
   border-radius: 14px;
   text-align: center;
@@ -675,7 +684,7 @@ textarea:focus {
   border-left: 4px solid gold;
   padding: 14px 18px;
   border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   opacity: 0;
   transform: translateY(-10px);
   transition: 0.3s ease;
@@ -686,4 +695,67 @@ textarea:focus {
 .toast.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* CONTACT INFO SECTION */
+.contact-info {
+  background: #0a0a0a;
+  color: #f5f5f5;
+  padding: 40px 20px;
+  margin-top: 40px;
+}
+
+.contact-info-container {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.info-item {
+  flex: 1;
+  min-width: 250px;
+}
+
+.info-item h3 {
+  color: gold;
+  margin-bottom: 10px;
+}
+
+.info-item p {
+  color: #ccc;
+  font-size: 14px;
+}
+
+/* PHONE / CONTACT LINKS - DEFAULT */
+.contact-info a {
+  color: #f5f5f5; /* same as your text */
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+/* HOVER (when cursor is on it) */
+.contact-info a:hover {
+  color: gold;
+}
+
+/* ACTIVE (when clicked / touched) */
+.contact-info a:active {
+  color: #e6c200;
+}
+
+/* FOOTER TEXT */
+.footer-text {
+  font-style: italic;
+  color: #ccc;
+  font-size: 14px;
+}
+
+/* GOLD HEART */
+.gold-love {
+  color: gold;
+  margin: 0 4px;
 }
