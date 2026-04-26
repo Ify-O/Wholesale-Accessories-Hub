@@ -34,17 +34,23 @@
     <meta property="og:type" content="website" />
   </head>
 
-  <div id="toast" class="toast"></div>
-
   <body>
+    <div id="toast" class="toast"></div>
+
     <!-- NAV -->
     <header>
       <nav class="navbar">
-        <h1>Wholesale Accessories Hub</h1>
+        <a href="index.html" class="logo">
+          <h1>WHOLESALE ACCESSORIES HUB</h1>
+          <p class="tagline">
+            Your Trusted Wholesale Jewelry and Accessory Supplier
+          </p>
+        </a>
+
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
         </ul>
       </nav>
     </header>
@@ -70,6 +76,10 @@
         action="/thank-you.html"
       >
         <input type="hidden" name="form-name" value="contact" />
+
+        <p style="display: none">
+          <label>Don’t fill this out: <input name="bot-field" /></label>
+        </p>
 
         <!-- PERSONAL -->
         <div class="form-group">
@@ -103,7 +113,12 @@
         <!-- BUSINESS -->
         <div class="form-group">
           <label>Business Name</label>
-          <input type="text" name="business-name" placeholder="Business Name" />
+          <input
+            type="text"
+            name="business-name"
+            placeholder="Business Name"
+            required
+          />
 
           <label>Type of Business</label>
           <select name="business-type" required>
@@ -146,13 +161,38 @@
           ></textarea>
         </div>
 
-        <button type="submit">Send Message</button>
+        <button type="submit">Send Message →</button>
       </form>
     </section>
+    <section class="contact-info">
+      <div class="contact-info-container">
+        <div class="info-item">
+          <h3>Call or WhatsApp</h3>
+          <p><a href="tel:+2348105725995">+234 810 572 5995</a></p>
+          <p>
+            <a href="https://wa.me/2348102950853" target="_blank">
+              Chat on WhatsApp
+            </a>
+          </p>
+        </div>
 
+        <div class="info-item">
+          <h3>LOCATION</h3>
+          <p>
+            ML Shop 93<br />
+            Beside Remi Ogunjimi Street<br />
+            5th Avenue Road, Gowon Estate<br />
+            Egbeda, Lagos, Nigeria
+          </p>
+        </div>
+      </div>
+    </section>
     <!-- FOOTER -->
     <footer>
-      <p>© 2026 Wholesale Accessories Hub</p>
+      <p class="footer-text">
+        © 2026 Wholesale Accessories Hub • Made with
+        <span class="gold-love">♥</span>
+      </p>
     </footer>
 
     <script src="script.js"></script>
