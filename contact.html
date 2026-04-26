@@ -77,6 +77,8 @@
       >
         <input type="hidden" name="form-name" value="contact" />
 
+        <input type="hidden" name="redirect" value="/thank-you.html" />
+
         <p style="display: none">
           <label>Don’t fill this out: <input name="bot-field" /></label>
         </p>
@@ -86,14 +88,20 @@
           <label>Name</label>
           <input type="text" name="name" placeholder="Your Name" required />
 
-          <label>Email</label>
-          <input type="email" name="email" placeholder="Your Email" required />
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required
+          />
         </div>
 
         <!-- PHONE -->
         <div class="form-group">
-          <label class="form-label">Phone Number</label>
-          <input id="phone" type="tel" name="phone" />
+          <label for="phone">Phone Number</label>
+          <input id="phone" type="tel" name="phone" required />
           <small class="hint">
             Select your country flag, then enter your number
           </small>
@@ -101,8 +109,8 @@
 
         <!-- CONTACT METHOD -->
         <div class="form-group">
-          <label>Preferred Contact Method</label>
-          <select name="contact-method" required>
+          <label for="contact-method">Preferred Contact Method</label>
+          <select id="contact-method" name="contact-method" required>
             <option value="" disabled selected>Select an option</option>
             <option value="email">Email</option>
             <option value="whatsapp">WhatsApp</option>
@@ -112,7 +120,7 @@
 
         <!-- BUSINESS -->
         <div class="form-group">
-          <label>Business Name</label>
+          <label for="business-name">Business Name</label>
           <input
             type="text"
             name="business-name"
