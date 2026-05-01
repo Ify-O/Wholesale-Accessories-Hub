@@ -30,15 +30,28 @@
   <body>
     <header>
       <nav class="navbar">
-        <h1>WHOLESALE ACCESSORIES HUB</h1>
-        <p class="tagline">
-          Your Trusted Wholesale Jewelry and Accessory Supplier
-        </p>
+        <div class="logo">
+          <h1>WHOLESALE ACCESSORIES HUB</h1>
+          <p class="tagline">
+            Your Trusted Wholesale Jewelry and Accessory Supplier
+          </p>
+        </div>
         <ul>
           <li><a href="index.html">HOME</a></li>
+
+          <li>
+            <select onchange="location = this.value">
+              <option value="">CATALOGUE</option>
+              <option value="jewelry-sets.html">Jewelry Sets</option>
+              <option value="earrings.html">Earrings</option>
+              <option value="necklaces.html">Necklaces</option>
+              <option value="others.html">Brooches & More</option>
+            </select>
+          </li>
+
           <li><a href="about.html">ABOUT</a></li>
-          <li><a href="contact.html">CONTACT</a></li>
           <li><a href="team.html">TEAM</a></li>
+          <li><a href="contact.html">CONTACT US</a></li>
         </ul>
       </nav>
     </header>
@@ -66,7 +79,7 @@
     </section>
 
     <section class="highlights">
-      <h2>What We Offer</h2>
+      <h2>Our Products</h2>
 
       <div class="cards-container">
         <!-- Jewelry Material Cards -->
@@ -160,9 +173,7 @@
 
       <div class="cta-buttons">
         <a
-          href="https://chat.whatsapp.com/FH2YsJmrGeULAprEXV38Tf?mode=gi_t
-
-"
+          href="https://chat.whatsapp.com/FH2YsJmrGeULAprEXV38Tf?mode=gi_t"
           target="_blank"
           class="cta-btn whatsapp"
         >
@@ -180,7 +191,7 @@
     </section>
 
     <section class="services reveal">
-      <h2>Our Products</h2>
+      <h2>What We Offer</h2>
       <div class="service-grid">
         <div class="card">
           <h3>Wholesale Accessories</h3>
@@ -210,7 +221,7 @@
       </div>
     </section>
 
-    <section class="catalog reveal">
+    <section class="catalog reveal" id="catalog">
       <h2>Featured Accessories</h2>
       <p class="catalog-intro">
         Explore samples of our top-quality pieces, crafted for style,
