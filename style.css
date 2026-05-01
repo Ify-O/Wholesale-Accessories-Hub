@@ -26,7 +26,8 @@ body {
   line-height: 1.6;
 }
 
-h2, h3 {
+h2,
+h3 {
   letter-spacing: 0.5px;
 }
 
@@ -226,7 +227,7 @@ a:hover {
 
 /* SECTIONS */
 section {
-  padding: 40px 20px;
+  padding: 50px 20px;
   text-align: center;
 }
 
@@ -775,7 +776,6 @@ textarea:focus {
   letter-spacing: 0.3px;
 }
 
-
 // ABOUT PAGE CTA
 
 .about-cta {
@@ -804,6 +804,7 @@ textarea:focus {
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
+  margin-top: 20px;
 }
 
 /* BASE BUTTON STYLE */
@@ -840,7 +841,7 @@ textarea:focus {
 
 /* WHATSAPP BUTTON */
 .cta-btn.whatsapp {
-  background: #25D366;
+  background: #25d366;
   color: #000;
 }
 
@@ -849,7 +850,7 @@ textarea:focus {
 }
 .contact-info {
   padding: 60px 20px;
-  background: #000
+  background: #000;
 }
 
 .contact-info-container {
@@ -919,12 +920,68 @@ textarea:focus {
 
 .founder-banner {
   width: 100%;
-  margin: 40px 0;
+  margin: 30px 0;
 }
 
 .founder-banner img {
   width: 100%;
-  height: 350px; /* rectangle size */
+  height: 320px; /* rectangle size */
   object-fit: cover;
   display: block;
+}
+/* ===== FOUNDER SECTION ===== */
+.founder-section {
+  padding: 50px 20px;
+}
+
+.founder-container {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.founder-image {
+  float: left;
+  width: 260px;
+  margin-right: 25px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+.founder-content p {
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+/* Clear float */
+.founder-container::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+@media (max-width: 768px) {
+  .founder-image {
+    float: none;
+    display: block;
+    margin: 0 auto 20px;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+p {
+  margin-bottom: 12px;
+}
+.team-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.team-section p {
+  line-height: 1.7;
 }
