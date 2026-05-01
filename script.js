@@ -138,28 +138,28 @@ const nextBtn = document.querySelector(".next");
 const prevBtn = document.querySelector(".prev");
 
 let index = 0;
-const visibleItems = 5; // adjust later if needed
 const items = document.querySelectorAll(".testimonial");
 const totalItems = items.length;
 
 function updateSlider() {
-  const slideWidth = items[0].offsetWidth;
+  const slideWidth = items[0].offsetWidth + 15; // include gap
   track.style.transform = `translateX(-${index * slideWidth}px)`;
 }
 
 nextBtn.addEventListener("click", () => {
-  if (index < totalItems - visibleItems) {
-    index++;
-    updateSlider();
+  index++;
+  if (index > totalItems - 1) {
+    index = 0;
   }
+  updateSlider();
 });
 
 prevBtn.addEventListener("click", () => {
-  if (index > 0) {
-    index--;
-    updateSlider();
+  index--;
+  if (index < 0) {
+    index = totalItems - 1;
   }
+  updateSlider();
 });
 
-// Optional: update on resize (keeps it responsive)
 window.addEventListener("resize", updateSlider);
