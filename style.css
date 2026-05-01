@@ -1081,7 +1081,7 @@ p {
 /* HERO SLIDER BACKGROUND */
 .hero {
   position: relative;
-  height: 500px;
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -1129,5 +1129,74 @@ p {
 /* Ensure hero text stays above images */
 .hero-content {
   position: relative;
+  z-index: 2;
+}
+
+.hero-cta {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.btn {
+  background: linear-gradient(135deg, gold, #d4af37);
+  color: #000;
+  padding: 14px 32px;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #000;
+  color: gold;
+}
+
+.hero-cta {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.btn {
+  background: linear-gradient(135deg, gold, #d4af37);
+  color: #000;
+  padding: 14px 32px;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #000;
+  color: gold;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* soft dark overlay */
+  z-index: 1;
+}
+
+.hero-slider {
+  z-index: 0;
+}
+
+.hero-cta {
   z-index: 2;
 }
