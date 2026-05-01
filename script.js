@@ -132,3 +132,34 @@ const yearEl = document.getElementById("year");
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
+
+const track = document.querySelector(".testimonial-track");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+
+let index = 0;
+const visibleItems = 3; // adjust later if needed
+const items = document.querySelectorAll(".testimonial");
+const totalItems = items.length;
+
+function updateSlider() {
+  const slideWidth = items[0].offsetWidth;
+  track.style.transform = `translateX(-${index * slideWidth}px)`;
+}
+
+nextBtn.addEventListener("click", () => {
+  if (index < totalItems - visibleItems) {
+    index++;
+    updateSlider();
+  }
+});
+
+prevBtn.addEventListener("click", () => {
+  if (index > 0) {
+    index--;
+    updateSlider();
+  }
+});
+
+// Optional: update on resize (keeps it responsive)
+window.addEventListener("resize", updateSlider);
