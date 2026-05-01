@@ -138,7 +138,7 @@ const nextBtn = document.querySelector(".next");
 const prevBtn = document.querySelector(".prev");
 
 let index = 0;
-const visibleItems = 3; // adjust later if needed
+const visibleItems = 5; // adjust later if needed
 const items = document.querySelectorAll(".testimonial");
 const totalItems = items.length;
 
