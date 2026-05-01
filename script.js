@@ -1,165 +1,71 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // NAV SCROLL
-  window.addEventListener("scroll", function () {
-    const navbar = document.querySelector(".navbar");
+// =========================
+// NAVBAR SCROLL EFFECT
+// =========================
+const navbar = document.querySelector(".navbar");
 
-    if (navbar) {
-      if (window.scrollY > 20) {
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-      }
-    }
-  });
-
-  // REVEAL ANIMATION
-  const reveals = document.querySelectorAll(".reveal");
-
-  function revealOnScroll() {
-    for (let i = 0; i < reveals.length; i++) {
-      const windowHeight = window.innerHeight;
-      const elementTop = reveals[i].getBoundingClientRect().top;
-
-      if (elementTop < windowHeight - 100) {
-        reveals[i].classList.add("active");
-      }
-    }
-  }
-
-  window.addEventListener("scroll", revealOnScroll);
-
-  // TOAST
-  const toast = document.getElementById("toast");
-
-  function showToast(message) {
-    if (!toast) return;
-
-    toast.textContent = message;
-    toast.classList.add("show");
-
-    setTimeout(() => {
-      toast.classList.remove("show");
-    }, 3000);
-  }
-
-  // PHONE INPUT
-  const phoneInput = document.querySelector("#phone");
-
-  let iti;
-
-  if (phoneInput && window.intlTelInput) {
-    iti = window.intlTelInput(phoneInput, {
-      initialCountry: "auto",
-      separateDialCode: true,
-      preferredCountries: ["ng", "gb", "us", "es", "cm", "gh"],
-      utilsScript:
-        "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
-    });
-
-    phoneInput.addEventListener("blur", function () {
-      if (iti.isValidNumber()) {
-        phoneInput.classList.add("phone-valid");
-        phoneInput.classList.remove("phone-invalid");
-      } else {
-        phoneInput.classList.add("phone-invalid");
-        phoneInput.classList.remove("phone-valid");
-      }
-    });
-    if (iti && phoneInput && !iti.isValidNumber()) {
-      e.preventDefault();
-      showToast("Please enter a valid phone number");
-      return;
-    }
-    phoneInput.addEventListener("input", function () {
-      phoneInput.classList.remove("phone-valid", "phone-invalid");
-    });
-  }
-
-  // FORM (FIXED - DECLARED PROPERLY)
-  const form = document.querySelector(".contact-form");
-
-  if (!form) return;
-  form.addEventListener("submit", function (e) {
-    const requiredFields = form.querySelectorAll("[required]");
-    let missingFields = [];
-
-    requiredFields.forEach((field) => {
-      if (!field.value.trim()) {
-        missingFields.push(field.name || field.placeholder || "field");
-      }
-    });
-
-    if (missingFields.length > 0) {
-      e.preventDefault();
-      showToast("Please fill in: " + missingFields.join(", "));
-      return;
-    }
-
-    // ✅ PHONE VALIDATION (FIXED)
-    if (iti && phoneInput && !iti.isValidNumber()) {
-      e.preventDefault();
-      showToast("Please enter a valid phone number");
-      return;
-    }
-
-    // PHONE FINAL FORMAT
-    if (iti && phoneInput) {
-      const fullNumber = iti.getNumber();
-      phoneInput.value = fullNumber;
-      localStorage.setItem("phone", fullNumber);
-    }
-  });
-
-  // WHATSAPP BUTTON (ONLY ON THANK YOU PAGE)
-  const whatsappLink = document.getElementById("whatsapp-link");
-
-  if (whatsappLink) {
-    let phone = localStorage.getItem("phone");
-
-    if (!phone) {
-      phone = "2348102950853"; // fallback always safe
-    }
-
-    const cleaned = phone.replace("+", "");
-    whatsappLink.href = `https://wa.me/${cleaned}`;
-  }
+window.addEventListener("scroll", () => {
+  if (!navbar) return;
+  navbar.classList.toggle("scrolled", window.scrollY > 50);
 });
 
-// script.js
+// =========================
+// SIMPLE SELECT DROPDOWN NAV
+// =========================
+const catalogSelect = document.querySelector(".navbar select");
 
-// ===== Auto-update footer year =====
-const yearEl = document.getElementById("year");
-if (yearEl) {
-  yearEl.textContent = new Date().getFullYear();
+if (catalogSelect) {
+  catalogSelect.addEventListener("change", (e) => {
+    if (e.target.value) {
+      window.location.href = e.target.value;
+    }
+  });
 }
 
+// =========================
+// SCROLL REVEAL
+// =========================
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      }
+    });
+  },
+  { threshold: 0.1 },
+);
+
+reveals.forEach((el) => observer.observe(el));
+
+// =========================
+// TESTIMONIAL SLIDER (SAFE VERSION)
+// =========================
 const track = document.querySelector(".testimonial-track");
-const nextBtn = document.querySelector(".next");
 const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
 
 let index = 0;
-const items = document.querySelectorAll(".testimonial");
-const totalItems = items.length;
 
 function updateSlider() {
-  const slideWidth = items[0].offsetWidth + 15; // include gap
-  track.style.transform = `translateX(-${index * slideWidth}px)`;
+  if (!track) return;
+  const card = document.querySelector(".testimonial");
+  if (!card) return;
+
+  const width = card.offsetWidth + 15;
+  track.style.transform = `translateX(-${index * width}px)`;
 }
 
-nextBtn.addEventListener("click", () => {
-  index++;
-  if (index > totalItems - 1) {
-    index = 0;
-  }
-  updateSlider();
-});
+if (nextBtn && prevBtn && track) {
+  nextBtn.addEventListener("click", () => {
+    const total = document.querySelectorAll(".testimonial").length;
+    if (index < total - 1) index++;
+    updateSlider();
+  });
 
-prevBtn.addEventListener("click", () => {
-  index--;
-  if (index < 0) {
-    index = totalItems - 1;
-  }
-  updateSlider();
-});
-
-window.addEventListener("resize", updateSlider);
+  prevBtn.addEventListener("click", () => {
+    if (index > 0) index--;
+    updateSlider();
+  });
+}
