@@ -544,6 +544,21 @@ button:hover {
 ========================= */
 
 @media (max-width: 768px) {
+  .hero {
+    height: 10vh;
+  }
+
+  .hero-cta {
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+
+  .btn {
+    padding: 10px 10px;
+    font-size: 12px;
+  }
+
   .hero h2 {
     font-size: 32px;
   }
@@ -1077,7 +1092,7 @@ p {
 /* HERO SLIDER BACKGROUND */
 .hero {
   position: relative;
-  height: 90vh;
+  height: 80vh;
   overflow: hidden;
 }
 
