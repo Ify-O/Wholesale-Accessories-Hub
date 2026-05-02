@@ -20,6 +20,18 @@ if (catalogSelect) {
     }
   });
 }
+//==========================
+// PHONE MENU TOGGLE
+//==========================
+const phoneInput = document.querySelector("#phone");
+
+const iti = window.intlTelInput(phoneInput, {
+  initialCountry: "auto",
+  separateDialCode: true,
+  preferredCountries: ["ng", "gb", "us", "es"],
+  utilsScript:
+    "https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js",
+});
 
 // =========================
 // SCROLL REVEAL
