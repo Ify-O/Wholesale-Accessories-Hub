@@ -1414,3 +1414,21 @@ html {
   padding: 6px 12px;
   border-radius: 20px;
 }
+
+.review-cta {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.review-cta a {
+  color: #c9a44c; /* your gold color */
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.review-cta a:hover {
+  text-decoration: underline;
+}
